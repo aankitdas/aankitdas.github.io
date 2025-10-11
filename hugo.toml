@@ -1,0 +1,19 @@
+baseURL = "https://aankitdas.github.io/"
+languageCode = "en-us"
+title = "Aankit's Space"
+theme = "hugo-profile"
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 20
+
+[params.assets]
+  css = ["css/custom.css"]

@@ -1,0 +1,34 @@
+/* Use Inter font */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Link colors */
+a {
+    color: #2563EB; /* professional blue */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1E40AF;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: #111827; /* dark gray for professionalism */
+}
+
+/* Background */
+body {
+    background-color: #F9FAFB; /* light neutral background */
+    color: #111827; /* default text color */
+}
+
+/* Card styling for project sections */
+.project-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
