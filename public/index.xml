@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aankit&#39;s Space</title>
-    <link>http://localhost:54682/</link>
+    <link>https://aankitdas.github.io/</link>
     <description>Recent content on Aankit&#39;s Space</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Oct 2025 14:45:45 -0500</lastBuildDate>
-    <atom:link href="http://localhost:54682/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aankitdas.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Me</title>
-      <link>http://localhost:54682/about/</link>
+      <link>https://aankitdas.github.io/about/</link>
       <pubDate>Sat, 11 Oct 2025 14:45:45 -0500</pubDate>
-      <guid>http://localhost:54682/about/</guid>
+      <guid>https://aankitdas.github.io/about/</guid>
       <description>&lt;p&gt;Hello there,&#xA;I&amp;rsquo;m &lt;strong&gt;Aankit Das&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>AlexNet from scratch</title>
-      <link>http://localhost:54682/blogs/alex/</link>
+      <link>https://aankitdas.github.io/blogs/alex/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54682/blogs/alex/</guid>
+      <guid>https://aankitdas.github.io/blogs/alex/</guid>
       <description>Implemented AlexNet from scratch using just the research paper as source. The notes discuss the fundamental concepts of CNN and showcase various problems Ifaced while coding the Alexnet architecture.</description>
     </item>
     <item>
       <title>GPT from scratch</title>
-      <link>http://localhost:54682/blogs/gpt/</link>
+      <link>https://aankitdas.github.io/blogs/gpt/</link>
       <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:54682/blogs/gpt/</guid>
+      <guid>https://aankitdas.github.io/blogs/gpt/</guid>
       <description>This is a very rustic blog post about the foundational aspect of building a GPT model from the ground up. The article covers essential topics such as tokenization, data chunking, batch processing, and the implementation of a Bigram language model using PyTorch.</description>
     </item>
   </channel>
