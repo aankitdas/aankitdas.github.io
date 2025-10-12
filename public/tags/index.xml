@@ -2,10 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Aankit&#39;s Space</title>
-    <link>https://aankitdas.github.io/tags/</link>
+    <link>http://localhost:54682/tags/</link>
     <description>Recent content in Tags on Aankit&#39;s Space</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://aankitdas.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:54682/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AlexNet</title>
+      <link>http://localhost:54682/tags/alexnet/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/alexnet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CNN</title>
+      <link>http://localhost:54682/tags/cnn/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/cnn/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep Learning</title>
+      <link>http://localhost:54682/tags/deep-learning/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Feature Extraction</title>
+      <link>http://localhost:54682/tags/feature-extraction/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/feature-extraction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PyTorch</title>
+      <link>http://localhost:54682/tags/pytorch/</link>
+      <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gpt</title>
+      <link>http://localhost:54682/tags/gpt/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/gpt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>N-Gram Models</title>
+      <link>http://localhost:54682/tags/n-gram-models/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/n-gram-models/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tokenization</title>
+      <link>http://localhost:54682/tags/tokenization/</link>
+      <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54682/tags/tokenization/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

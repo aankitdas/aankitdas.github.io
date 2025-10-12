@@ -1,0 +1,428 @@
+baseURL: "https://aankitdas.github.io/"
+languageCode: "en-us"
+title: "Aankit's Space"
+theme: hugo-profile
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+  page:
+    - "HTML"
+    - "RSS"
+
+enableRobotsTXT: true
+
+#services:
+  #googleAnalytics:
+    #id: G-MEASUREMENT_ID
+  #disqus:
+    #shortname: your-disqus-shortname
+
+pagination:
+  pagerSize: 3
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+Menus:
+  main:
+    - identifier: blog
+      name: Blog
+      title: Blog posts
+      url: /blogs
+      weight: 1
+    # - identifier: gallery
+    #   name: Gallery
+    #   title: My Gallery
+    #   url: /gallery
+    #   weight: 2
+    #Dropdown menu
+    # - identifier: dropdown
+    #   title: Example dropdown menu
+    #   name: Dropdown
+    #   weight: 3
+    # - identifier: dropdown1
+    #   title: example dropdown 1
+    #   name: example 1
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 1
+    # - identifier: dropdown2
+    #   title: example dropdown 2
+    #   name: example 2
+    #   url: /#
+    #   parent: dropdown
+    #   weight: 2
+
+params:
+  title: "Aankit's Space"
+  description: My cool site
+  # staticPath: ""  # The path to serve the static files from
+  favicon: "/head.png"
+
+  # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
+  # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
+  # Note the lack of "" in true, it should be of boolean type.
+  useBootstrapCDN: false
+
+  # If you want to load dynamically responsive images from Cloudinary
+  # This requires your images to be uploaded + hosted on Cloudinary
+  # Uncomment and change YOUR_CLOUD_NAME to the Cloud Name in your Cloudinary console
+  # cloudinary_cloud_name: "YOUR_CLOUD_NAME"
+
+  # Whether to add mathjax support on all pages. Alternatively, you can opt-in per page by adding `mathjax: true` in the frontmatter.
+  mathjax: true
+
+  # Whether the fade animations on the home page will be enabled
+  animate: true
+
+  theme:
+    # disableThemeToggle: true
+    # defaultTheme: "light" # dark
+
+  font:
+    fontSize: 1rem # default: 1rem
+    fontWeight: 400 # default: 400
+    lineHeight: 1.5 # default: 1.5
+    textAlign: left # default: left
+
+  # color preference
+  # When using hex codes for colors, quotations must be used along with the # sign
+  # color:
+  #   textColor: "#343a40"
+  #   secondaryTextColor: "#6c757d"
+  #   textLinkColor: "#007bff"
+  #   backgroundColor: "#eaedf0"
+  #   secondaryBackgroundColor: "#64ffda1a"
+  #   primaryColor: "#007bff"
+  #   secondaryColor: "#f8f9fa"
+
+  #   darkmode:
+  #     textColor: "#e4e6eb"
+  #     secondaryTextColor: "#b0b3b8"
+  #     textLinkColor: "#ffffff"
+  #     backgroundColor: "#18191a"
+  #     secondaryBackgroundColor: "#212529"
+  #     primaryColor: "#ffffff"
+  #     secondaryColor: "#212529"
+
+  # If you want to customize the menu, you can change it here
+  navbar:
+    align: ms-auto # Left: ms-auto | center: mx-auto | right: me-auto | Default: ms-auto
+    # brandLogo: "/logo.png" # Logo for the brand | default is the favicon variable
+    # showBrandLogo: false # Show brand logo in nav bar | default is true
+    brandName: "Home" # Brand name for the brand | default is the title variable
+    disableSearch: true
+    # searchPlaceholder: "Search"
+    stickyNavBar:
+      enable : true
+      showOnScrollUp : false
+    enableSeparator: false
+    menus:
+      disableAbout: false
+      disableExperience: false
+      disableEducation: false
+      disableProjects: false
+      disableAchievements: false
+      disableContact: false
+
+  # Hero
+  hero:
+    enable: true
+    intro: "Hi, my name is"
+    title: "Aankit."
+    subtitle: "I build intelligent systems"
+    content: "Currently, building deep learning pipelines that turn messy cosmic data into clean power spectra, speeding up cosmology research beyond traditional approaches."
+    image: /hero.png
+    imageUrl: "https://linkedin.com/in/aankitdas"
+
+    bottomImage:
+      enable: true
+    roundImage: true # Make hero image circular | default false
+    button:
+      enable: true
+      name: "Resume"
+      url: "https://drive.google.com/file/d/1FtBFvUUT7ox6Kyfr8E1x6rVKm7ICM6VT/view?usp=sharing"
+      download: false
+      newPage: true
+    socialLinks:
+      fontAwesomeIcons:
+        - icon: fab fa-github
+          url: https://github.com/aankitdas
+        - icon: fab fa-linkedin
+          url: https://linkedin.com/in/aankitdas
+        
+        # - icon: fab fa-x-twitter
+        #   url: https://example.com
+      # customIcons:
+      #   - icon: /fav.png
+      #     url: "https://example.com"
+
+  # About
+  about:
+    enable: true
+    title: "About Me"
+    image: ""
+    content: |-
+      I’m Aankit, a master's graduate from University of Texas at Dallas, in Computer Engineering. Currently, I am a researcher and engineer passionate about building intelligent systems that help scientists make sense of complex data. My work spans predictive modeling, neural pipelines, and distributed machine learning, with a focus on accelerating cosmological inference from noisy CMB maps.
+
+      I love turning messy datasets into clean, actionable insights, whether through optimizing deep learning architectures, scaling computations across multi-GPU clusters, or experimenting with novel algorithms. Beyond research, I enjoy exploring ways AI can simplify real-world problems, and I’m always tinkering, learning, and pushing the boundaries of what’s possible.
+
+      When I’m not coding or analyzing data, you’ll find me climbing rocks, hiking trails, and capturing landscapes through my lens.
+  skills:
+      enable: true
+      title: "Here are a few technologies I've been working with recently:"
+      items:
+        - "HTML"
+        - "CSS"
+        - "JavaScript"
+        - "React"
+        - "Node"
+        - "Express"
+
+  # Experience
+  experience:
+    enable: true
+    # title: "Custom Name"
+    items:
+      - company: "University of Texas at Dallas"
+        companyUrl: "https://physics.utdallas.edu/"
+        jobs:
+          - name: "Machine Learning Researcher"
+            date: "Aug 2025 - present"
+            content: |
+              Building and optimizing neural pipelines within ADAPT RAISE, an [NSF-funded effort (Award #2327245)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2327245&HistoricalAwards=false) to accelerate
+              cosmological inference using deep learning, focusing on extracting clean power spectra from noisy CMB (Cosmic
+              Microwave Background) maps, enabling faster, scalable alternatives to traditional Bayesian pipelines.
+            info:
+              content: Working as an ML researcher
+            featuredItems:
+              fontAwesomeIcons:
+                - icon: fa-brands fa-github
+                  url: https://github.com/CMB-ML/
+                  tooltip: CMB-ML GitHub Repo
+            
+          - name: ""
+            # date: "Jan 2022 - Dec 2023"
+            content: |
+              - Active contributor to the [CMB-ML GitHub organization](https://github.com/CMB-ML/), supporting open-source research for cosmology and machine learning; working toward submitting findings to ICCV/CVPR.
+              - Processed 1,600 high-resolution (Nside=512) CMB simulated maps (24GB) across multiple splits.
+              - Developed an UNet-inspired encoder-decoder neural architecture, trained under 20 seconds per epoch on modern GPUs, for denoising and recovering the angular power spectrum (Cℓ) across ℓ ∈ [2, 1280] from these simulated maps.
+              - Performed rigorous ablation studies including dropout, batch normalization, loss function variants (MSE, normalized MSE, Wishart), and activation functions (ReLU, GELU).
+              - Automated hyperparameter sweeps using Hydra and shell scripting to benchmark model performance across ells, detectors, and feature configurations at different resolutions (Nside=128/512).
+            
+
+      - company: "SEI Investments Company"
+        companyUrl: "https://www.seic.com/"
+        jobs:
+          - name: "Data Scientist"
+            date: "Oct 2021 - Aug 2023"
+            info:
+              content: Worked as a Data Scientist for 2 years.
+            content: |
+              Developed end-to-end automation and analytics solutions to streamline data workflows and enhance business intelligence.
+
+              - Automated document processing: Built a Python-based NLP and OCR system that reduced manual data entry by 50% and improved data accessibility.
+              - Data reconciliation & insights: Designed a scalable reconciliation workflow in Alteryx and interactive Tableau dashboards for large datasets, improving cross-team efficiency and decision-making.
+
+  # Education
+  education:
+    enable: true
+    # title: "Custom Name"
+    index: false
+    items:
+      - title: "MS in Computer Engineering"
+        school:
+          name: "University of Texas at Dallas"
+          url: "https://engineering.utdallas.edu/"
+          address: "Richardson, TX"
+        date: "2023 - 2025"
+        
+        GPA: "3.8 out of 4.0"
+        content: |-
+          Coursework: Machine Learning, Statistical Methods in AI and ML, NLP, Applied Data Structures and Algorithms,
+          Computer Architecture, Embedded Systems, Wireless Sensor Systems, Hardware Modelling, Advanced Digital Language
+
+      - title: "BTech in Electronics and Communication Engineering"
+        school:
+          name: "University of Calcutta"
+          url: "https://www.irpe.in/"
+          address: "Kolkata, IN"
+        date: "2016 - 2020"
+        
+        GPA: "8.03 out of 10.0"
+        content: |-
+          Thesis: Low-Power Multi-Optional Sat-nav Module with Multi-Constellation Satellite Signal Tracking.
+
+        featuredLink:
+          enable: true
+          name: "My Thesis"
+          url: "https://drive.google.com/file/d/1On5Tj6xKnt-7Hq-NHdAAsjBdDyPlmvzQ/view"
+     
+
+  # Achievements
+  achievements:
+    enable: true
+    # title: "Custom Name"
+    items:
+      - title: Google Scholar Citations
+        content: Gained 120+ citations for my research papers.
+        url: https://scholar.google.com/citations?user=bUYJFM8AAAAJ&hl=en
+        image: /cite.png
+      - title: 2x Jonsson School Dean’s Scholarship Recipient
+        content: Selected as one of a few graduate students to receive this highly competitive, merit-based scholarship awarded by the Erik Jonsson School of Engineering and Computer Science at The University of Texas at Dallas.
+        image: /achievement.jpg
+      # - title: Hugo Profile
+      #   content: Developed a theme and getting 1K+ downloads per month.
+      #   url: "https://github.com/gurusabarish/hugo-profile"
+      #   image: /images/achievement.jpg
+      # - title: Microsoft Imagine Runner
+      #   content: We are developed a product which can help others.
+      # - title: Google Summer of Code
+      #   content: Contributed to a open source project.
+      #   url: https://example.com
+
+  # projects
+  projects:
+    enable: true
+    # title: "Custom Name"
+    items:
+      - title: RAISE ADAPT - Novel AI/ML methods to derive CMB temperature and polarization power spectra from uncleaned maps
+        content: This project applies novel machine learning methods to extract clean Cosmic Microwave Background (CMB) signals from contaminated data, enabling high-precision studies of primordial gravitational waves. By combining deep neural networks with statistical models and domain knowledge, the team produces scientifically informed, efficient models that directly generate temperature and polarization power spectra from raw maps.
+        image: /projects/cmb.jpeg
+        # featured:
+        #   name: Demo
+        #   link: https://github.com/CMB-ML/
+        badges:
+          - "PyTorch"
+          - "Neural Networks"
+          - "Cosmology"
+        links:
+          # - icon: fa fa-envelope
+          #   url: mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f
+          - icon: fab fa-github
+            url: https://github.com/CMB-ML/
+          # - icon: fab fa-twitter
+          #   url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile
+
+      - title: SecureVision - Raspberry Pi Biometric Authentication System
+        content: Developed an advanced facial recognition security system using Raspberry Pi, integrating computer vision techniques
+                with AWS cloud services to capture, log, and alert on unauthorized access attempts, demonstrating expertise in IoT,
+                machine learning, and cloud infrastructure.
+        image: /projects/secure.jpg
+        featured:
+          name: Demo
+          link: https://github.com/aankitdas/SecureVision/blob/main/demo.mp4
+        badges:
+          - "Raspberry Pi"
+          - "Computer Vision"
+          - "AWS"
+          - "Facial Recognition"
+          - "Security"
+          - "Edge Impulse"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/aankitdas/SecureVision
+
+      - title: Sentiment Classification with Custom FFNN and RNN Architectures
+        content: Built n-gram language models (unigram & bigram) with Add-k and Kneser-Ney smoothing; evaluated using
+                perplexity to measure linguistic predictability. Implemented sentiment analysis models from scratch using Feedforward Neural Networks (FFNN) with bag-of-words
+                vectorization and Recurrent Neural Networks (RNN) with word embeddings.
+        image: /projects/sentiment.png
+        featured:
+            name: Report
+            link: https://github.com/aankitdas/cs6320_assignment2/blob/main/CS6320_Assignment2.pdf
+        badges:
+          - "PyTorch"
+          - "Language Models"
+          - "RNNs"
+          - "FFNNs"
+          - "NLTK"
+          - "Vectorization"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/aankitdas/cs6320_nlp
+          - icon: fab fa-github
+            url: https://github.com/aankitdas/cs6320_assignment2
+
+      - title: NEAT Algorithm playing Dino Game
+        content: Implemented the NeuroEvolution of Augmenting Topologies (NEAT) algorithm to train an AI agent to play the Chrome Dino game. The project involved evolving neural network architectures and weights through genetic algorithms, enabling the agent to learn optimal jumping strategies to avoid obstacles and achieve high scores.
+        image: /projects/dino.gif
+          
+        links:
+          - icon: fab fa-github
+            url: https://github.com/aankitdas/Local-Dino-Game
+
+      - title: Graph-Based Heuristic Optimization
+        content: Modeled a test graph in C++ and applied a heuristic procedure to solve the clique partitioning problem (NP-hard)
+                 in dictionary-based test data compression for reducing data volume.
+        image: /projects/graph.png
+        featured:
+          name: Report
+          link: https://github.com/aankitdas/clique-partitioning/blob/main/CE6320_project_F24.pdf
+        links:
+          - icon: fab fa-github
+            url: https://github.com/aankitdas/clique-partitioning
+  #Contact
+  contact:
+    enable: true
+    # title: "Custom Name"
+    content: Debugging life, one semicolon at a time. Drop me a message if you want to talk code, collaborate on a project, or share your rock climbing adventures!🧗‍♂️
+    btnName: Mail me
+    btnLink: mailto:aankitdas5@gmail.com
+    # formspree:
+    #   enable: true # `contact.email` value will be ignored
+    #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
+    #   emailCaption: "Enter your email address"
+    #   messageCaption: "Enter your message here"
+    #   messageRows: 5
+
+  footer:
+    recentPosts:
+      path: "blogs"
+      count: 3
+      title: Recent Posts
+      enable: false
+      disableFeaturedImage: false
+    socialNetworks:
+      github: https://github.com/aankitdas
+      linkedin: https://linkedin.com/in/aankitdas
+      googleScholar: https://scholar.google.com/citations?user=bUYJFM8AAAAJ&hl=en
+      # twitter: https://twitter.com
+      # instagram: https://instagram.com
+      # facebook: https://facebook.com
+
+  # List pages like blogs and posts
+  listPages:
+    disableFeaturedImage: false
+
+  # Single pages like blog and post
+  singlePages:
+    socialShare: true
+    readTime:
+      enable: true
+      content: "min read"
+    scrollprogress:
+      enable: true
+    tags:
+      openInNewTab: true
+
+  # For translations
+  terms:
+    read: "Read"
+    toc: "Table Of Contents"
+    copyright: "All rights reserved"
+    pageNotFound: "Page not found"
+    emailText: "Check out this site"
+
+  datesFormat:
+    article: "Jan 2, 2006"
+    articleList: "Jan 2, 2006"
+    articleRecent: "Jan 2, 2006"
+
+  #customScripts: -| # You can add custom scripts which will be added before </body> tag
+  #  <script type="text/javascript"><!-- any script here --></script>
