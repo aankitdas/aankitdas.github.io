@@ -1,4 +1,5 @@
 baseURL: "https://aankitdas.github.io/"
+relativeURLs: false
 languageCode: "en-us"
 title: "Aankit's Space"
 theme: hugo-profile
@@ -8,6 +9,7 @@ outputs:
     - "HTML"
     - "RSS"
     - "JSON"
+  section: ["HTML", "RSS"]
   page:
     - "HTML"
     - "RSS"
