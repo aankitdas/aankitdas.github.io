@@ -14,6 +14,10 @@ outputs:
 
 enableRobotsTXT: true
 
+
+permalinks:
+  blogs: /blogs/:slug/
+
 #services:
   #googleAnalytics:
     #id: G-MEASUREMENT_ID
@@ -402,7 +406,7 @@ params:
 
   # Single pages like blog and post
   singlePages:
-    socialShare: true
+    socialShare: false
     readTime:
       enable: true
       content: "min read"
