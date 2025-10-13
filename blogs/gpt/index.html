@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href=/head.png type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="http://localhost:1313/blogs/gpt/">
+  <meta property="og:site_name" content="Aankit&#39;s Space">
+  <meta property="og:title" content="GPT from scratch">
+  <meta property="og:description" content="This is a very rustic blog post about the foundational aspect of building a GPT model from the ground up. The article covers essential topics such as tokenization, data chunking, batch processing, and the implementation of a Bigram language model using PyTorch.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blogs">
+    <meta property="article:published_time" content="2025-02-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-12T00:00:00+00:00">
+    <meta property="article:tag" content="Gpt">
+    <meta property="article:tag" content="Tokenization">
+    <meta property="article:tag" content="PyTorch">
+    <meta property="article:tag" content="N-Gram Models">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GPT from scratch">
+  <meta name="twitter:description" content="This is a very rustic blog post about the foundational aspect of building a GPT model from the ground up. The article covers essential topics such as tokenization, data chunking, batch processing, and the implementation of a Bigram language model using PyTorch.">
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/single.css">
+
+
+<script defer src="/fontawesome-6/all-6.4.2.js"></script>
+
+
+  
+  
+
+  <title>
+GPT from scratch | Aankit&#39;s Space
+
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  false ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                <img src="/head.png" width="30" height="30"
+                    class="d-inline-block align-top">
+                Home
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#achievements"
+                            aria-label="achievements">
+                            Achievements
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/blogs" title="Blog posts">
+                            
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section id="single">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-12 col-lg-9">
+        <div class="pr-lg-4">
+          <div class="title mb-5">
+            <h1 class="text-center mb-4">GPT from scratch</h1>
+            <div class="text-center">
+              
+              Feb 12, 2025
+
+              
+              <span id="readingTime">
+                min read
+              </span>
+              
+            </div>
+          </div>
+          
+          <article class="page-content  p-2">
+          <h1 id="gpt-from-scratch---notes">GPT from Scratch - Notes</h1>
+<p>Learning to build and train transformer-based language models by implementing GPT-2 architecture step by step.</p>
+<p><strong>Key Papers:</strong></p>
+<ul>
+<li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a> - Vaswani et al. (2017) - The original Transformer architecture</li>
+<li><a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">Improving Language Understanding by Generative Pre-Training</a> - Radford et al. (2018) - GPT-1</li>
+<li><a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">Language Models are Unsupervised Multitask Learners</a> - Radford et al. (2019) - GPT-2</li>
+</ul>
+<h2 id="tokenization-why-do-we-need-it">Tokenization: Why Do We Need It?</h2>
+<p>Tokenization is the process of converting string data into integers. This allows us to feed text into neural networks.</p>
+<p>In this project, we will use <strong>character-level encoding and decoding</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Create a mapping from characters to integers</span>
+</span></span><span style="display:flex;"><span>stoi <span style="color:#f92672">=</span> {ch:i <span style="color:#66d9ef">for</span> i,ch <span style="color:#f92672">in</span> enumerate(chars)}
+</span></span><span style="display:flex;"><span>itos <span style="color:#f92672">=</span> {i:ch <span style="color:#66d9ef">for</span> i,ch <span style="color:#f92672">in</span> enumerate(chars)}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>encode <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> s: [stoi[c] <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> s]  <span style="color:#75715e"># Encoder: string -&gt; list of integers</span>
+</span></span><span style="display:flex;"><span>decode <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> l: <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join([itos[i] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> l])  <span style="color:#75715e"># Decoder: list of integers -&gt; string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(encode(<span style="color:#e6db74">&#34;hii there&#34;</span>))  <span style="color:#75715e"># Output: [46, 47, 47, 1, 58, 46, 43, 56, 43]</span>
+</span></span><span style="display:flex;"><span>print(decode(encode(<span style="color:#e6db74">&#34;hii there&#34;</span>)))  <span style="color:#75715e"># Output: &#34;hii there&#34;</span>
+</span></span></code></pre></div><p>The above is a simple example. There are more efficient encoding methods, but we will stick to this for the project.</p>
+<p>Next, we encode the entire text dataset into a list of integers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>data <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor(encode(text), dtype<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>long)
+</span></span></code></pre></div><p>This converts the long text data into a tensor.</p>
+<h3 id="chunks">Chunks</h3>
+<p>We never feed the entire text into the model at once (computationally expensive). Instead, we divide the training data into chunks.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>block_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>train_data[:block_size<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]  <span style="color:#75715e"># Output: tensor([18, 47, 56, 57, 58, 1, 15, 47, 58])</span>
+</span></span></code></pre></div><ul>
+<li><code>block_size</code> is the number of tokens considered at a time.</li>
+<li>The output <code>[18, 47, 56, ...]</code> represent a sliding window context for predicting the next character.</li>
+</ul>
+<p>Note that the <code>tensor([18, 47, 56, 57, 58,  1, 15, 47, 58])</code> has multiple examples packed into it and all these characters follow each other. Meaning - if input is <code>[18]</code>, the output is likely <code>[47]</code>, in the context of <code>[18, 47]</code> the output is <code>[56]</code> and so on all the way up to <code>[18, 47, 56, 57, 58,  1, 15, 47]</code> and the output is likely <code>[58]</code>.</p>
+<p>So in one pass, we train on all the 8 examples, with content between 1 and block size (here 8), so that the model can understand context everything in between. so the model would predict everything up to block size and then we have to start truncating coz the model would never receiver input size bigger than block size.</p>
+<p>Batch dimension: efficiency purpose, parallel processing, multiple chunks at the same time but they are completely independent of each other.</p>
+<h3 id="batch-dimension">Batch Dimension</h3>
+<p>We use batching for <strong>parallel processing</strong>, feeding multiple independent chunks at once.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>batch_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>block_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_batch</span>(split):
+</span></span><span style="display:flex;"><span>   <span style="color:#75715e"># Generate a small batch of input (x) and target (y)</span>
+</span></span><span style="display:flex;"><span>   data <span style="color:#f92672">=</span> train_data <span style="color:#66d9ef">if</span> split <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;train&#39;</span> <span style="color:#66d9ef">else</span> val_data
+</span></span><span style="display:flex;"><span>   ix <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randint(len(data) <span style="color:#f92672">-</span> block_size, (batch_size,))
+</span></span><span style="display:flex;"><span>   x <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>stack([data[i:i<span style="color:#f92672">+</span>block_size] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> ix])
+</span></span><span style="display:flex;"><span>   y <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>stack([data[i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:i<span style="color:#f92672">+</span>block_size<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> ix])
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> x, y
+</span></span></code></pre></div><p>The <code>get_batch()</code> function:</p>
+<ul>
+<li><code>ix</code> generates random starting positions for our training examples. With a batch size of 4, this creates 4 random offsets, each an integer between <code>0 and len(data) - block_size</code>. These offsets tell us where to start reading from our dataset.</li>
+<li><code>x</code> extracts our input sequences. For each offset <code>i</code>, we grab <code>block_size</code> consecutive characters starting at position <code>i</code>. The corresponding targets <code>y</code> are simply the next character after each position in <code>x</code>.</li>
+<li><code>torch.stack</code> function takes these individual 1-dimensional tensors (one for each offset) and stacks them into a single 2-dimensional tensor with shape <code>(batch_size, block_size)</code>. In this case, a 4×8 tensor. Each row represents one independent training sequence.</li>
+</ul>
+<h2 id="bigram-model">Bigram Model</h2>
+<p><code>BigramLanguageModel()</code> is a custom class that inherits from <code>nn.Module</code> (a PyTorch base class for all neural networks). Note that the <code>super().__init__()</code> calls the constructor of the parent class (<code>nn.Module</code>) to initialize its internals.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BigramLanguageModel</span>(nn<span style="color:#f92672">.</span>Module):
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, vocab_size):
+</span></span><span style="display:flex;"><span>       super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>()
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e"># Each token directly predicts the next token from a lookup table</span>
+</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>token_embedding_table <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Embedding(vocab_size, vocab_size)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, idx, targets<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e"># idx and targets are (B, T) tensors</span>
+</span></span><span style="display:flex;"><span>       logits <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>token_embedding_table(idx)  <span style="color:#75715e"># (B, T, C)</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">return</span> logits
+</span></span></code></pre></div><p>The Bigram model has the following properties:</p>
+<ul>
+<li><code>nn.Embedding</code> creates a lookup table of size <code>(vocab_size, vocab_size)</code>.</li>
+<li>Input <code>idx</code> selects rows from the embedding table corresponding to token indices.</li>
+</ul>
+<p>So when we pass idx, every single input will refer to the embedding table and is going to select a row of the table corresponding to its index.
+Example input/output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(xb)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># tensor([[24, 43, 58,  5, 57,  1, 46, 43],</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         [44, 53, 56,  1, 58, 46, 39, 58],</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         [52, 58,  1, 58, 46, 39, 58,  1],</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#         [25, 17, 27, 10,  0, 21,  1, 54]])</span>
+</span></span></code></pre></div><p>‘24’ will correspond to 24th row in embedding table, similarly ‘5’ will correspond to 5th row. PyTorch then organizes these embeddings into a tensor with shape <code>(batch, time, channel)</code>. In our case, that&rsquo;s (4, 8, 65) — where batch size is 4, time (context length) is 8, and channels equal our vocabulary size of 65.</p>
+<p>The line <code>logits = self.token_embedding_table(idx) # (B,T,C)</code>  produces logits, which are scores representing the likelihood of each possible next character in the sequence. At this stage, we&rsquo;re predicting what comes next based solely on the identity of a single token, without considering any surrounding context.
+This is why we call it a <strong>bigram model</strong>. It only looks at pairs of tokens (the current token and the next one). When we initialize and print this model, we see:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>m <span style="color:#f92672">=</span> BigramLanguageModel(vocab_size)
+</span></span><span style="display:flex;"><span>out <span style="color:#f92672">=</span> m(xb, yb)
+</span></span><span style="display:flex;"><span>print(out<span style="color:#f92672">.</span>shape)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># torch.Size([4, 8, 65])</span>
+</span></span></code></pre></div><p>That is, <code>out</code> contains the logits for each token in the sequence for each item in the batch.
+for example, <code>out[0][0]</code> would give the logits for the next token prediction for the first token in the first sequence, and <code>out[1][2]</code> would give the logits for the third token in the second sequence.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>B, T, C <span style="color:#f92672">=</span> logits<span style="color:#f92672">.</span>shape
+</span></span><span style="display:flex;"><span>            logits <span style="color:#f92672">=</span> logits<span style="color:#f92672">.</span>view(B<span style="color:#f92672">*</span>T, C)
+</span></span><span style="display:flex;"><span>            targets <span style="color:#f92672">=</span> targets<span style="color:#f92672">.</span>view(B<span style="color:#f92672">*</span>T)
+</span></span><span style="display:flex;"><span>            loss <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>cross_entropy(logits, targets)
+</span></span></code></pre></div><h3 id="reshaping-for-the-loss-function">Reshaping for the Loss Function</h3>
+<p>PyTorch&rsquo;s cross-entropy loss expects the channel dimension (C) as the second argument, with the format (N, C) where N is the number of predictions. However, our logits currently have shape (B, T, C)—batch, time, and channel.</p>
+<p>To conform to PyTorch&rsquo;s requirements, we need to reshape our tensors. We unpack the batch and time dimensions by flattening them into a single dimension, transforming our (B, T, C) tensor into (B*T, C). This way, the channel dimension C becomes the second argument as expected.</p>
+<p>For the targets, we apply a similar transformation—converting our (B, T) tensor into a 1-dimensional tensor of length B*T. We can accomplish this efficiently using targets.view(-1), which flattens the tensor while letting PyTorch infer the correct size automatically.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>m <span style="color:#f92672">=</span> BigramLanguageModel(vocab_size)
+</span></span><span style="display:flex;"><span>logits, loss <span style="color:#f92672">=</span> m(xb, yb)
+</span></span><span style="display:flex;"><span>print(logits<span style="color:#f92672">.</span>shape)
+</span></span><span style="display:flex;"><span>print(loss)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">output:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">torch.Size([32, 65])
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">tensor(4.8786, grad_fn=&lt;NllLossBackward0&gt;)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</span></span></code></pre></div><p>Since our vocabulary size is 65, we&rsquo;d expect the initial loss from a completely untrained model to be around <code>-ln(1/65) ≈ 4.17</code>. This represents maximum entropy—the model guessing uniformly at random across all possible tokens.</p>
+<p>Our actual loss of 4.88 is slightly higher than this theoretical baseline, which is normal for randomly initialized weights. The model&rsquo;s initial predictions are essentially random, containing high entropy. As training progresses, we expect this loss to decrease as the model learns meaningful patterns in the data.</p>
+<h3 id="how-text-generation-works">How text generation works</h3>
+<p>The <code>generate()</code> function takes <code>idx</code>, a tensor of shape <code>(B, T)</code> representing the current context—B sequences of T tokens each—and extends each sequence by <code>max_new_tokens</code> new characters.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate</span>(self, idx, max_new_tokens):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># idx is (B, T) array of token indices</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(max_new_tokens):
+</span></span><span style="display:flex;"><span>        logits, loss <span style="color:#f92672">=</span> self(idx)
+</span></span><span style="display:flex;"><span>        logits <span style="color:#f92672">=</span> logits[:, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, :]  <span style="color:#75715e"># Focus on last time step (B, C)</span>
+</span></span><span style="display:flex;"><span>        probs <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>softmax(logits, dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)  <span style="color:#75715e"># Convert logits to probabilities</span>
+</span></span><span style="display:flex;"><span>        idx_next <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>multinomial(probs, num_samples<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)  <span style="color:#75715e"># Sample next token</span>
+</span></span><span style="display:flex;"><span>        idx <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>cat((idx, idx_next), dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)  <span style="color:#75715e"># Append to running sequence</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> idx
+</span></span></code></pre></div><p>Here&rsquo;s the step-by-step process:</p>
+<ul>
+<li>Get predictions: We pass the current context through the model to get logits for all time steps</li>
+<li>Focus on the last position: We extract only the logits at the final time step using <code>logits[:, -1, :]</code>, giving us shape <code>(B, C)</code>—predictions for what should come next</li>
+<li>Convert to probabilities: We apply softmax to transform raw logits into a probability distribution over the vocabulary</li>
+<li>Sample the next token: Using <code>torch.multinomial()</code>, we randomly sample one token from this distribution for each batch element, producing a tensor of shape <code>(B, 1)</code></li>
+<li>Extend the context: We concatenate the newly sampled token to our running sequence, expanding it from <code>(B, T)</code> to <code>(B, T+1)</code></li>
+</ul>
+<p>This process repeats for <code>max_new_tokens</code> iterations, with each new token becoming part of the context for predicting the next one.</p>
+<h2 id="gpt-2-skeleton">GPT-2 Skeleton</h2>
+<p>This structure mirrors the <a href="https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf">GPT-2 paper&rsquo;s</a> architecture diagram:</p>
+<ul>
+<li><strong><code>wte</code></strong> (token embeddings): Maps each token in the vocabulary to a learned embedding vector of dimension <code>n_embd</code> (768 in GPT-2 124M)</li>
+<li><strong><code>wpe</code></strong> (positional embeddings): Encodes the position of each token in the sequence, up to <code>block_size</code> positions</li>
+<li><strong><code>h</code></strong> (transformer blocks): A stack of <code>n_layer</code> identical transformer blocks (12 layers in GPT-2 124M), shown as the gray blocks in the architecture diagram</li>
+<li><strong><code>ln_f</code></strong> (final layer norm): A layer normalization applied after all transformer blocks—this is a GPT-2 specific addition not present in the original GPT</li>
+<li><strong><code>lm_head</code></strong> (language modeling head): The final linear layer that projects from the embedding dimension (768) back to vocabulary size (50,257 for GPT-2), producing logits for next-token prediction</li>
+</ul>
+<p>The architecture is shown below:</p>
+<p><img src="/blog_pics/gpt.webp" alt="GPT-2 Architecture"></p>
+
+          </article>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-3">
+        <div id="stickySideBar" class="sticky-sidebar">
+          
+          <aside class="toc">
+              <h5>
+                Table Of Contents
+              </h5>
+              <div class="toc-content">
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tokenization-why-do-we-need-it">Tokenization: Why Do We Need It?</a>
+      <ul>
+        <li><a href="#chunks">Chunks</a></li>
+        <li><a href="#batch-dimension">Batch Dimension</a></li>
+      </ul>
+    </li>
+    <li><a href="#bigram-model">Bigram Model</a>
+      <ul>
+        <li><a href="#reshaping-for-the-loss-function">Reshaping for the Loss Function</a></li>
+        <li><a href="#how-text-generation-works">How text generation works</a></li>
+      </ul>
+    </li>
+    <li><a href="#gpt-2-skeleton">GPT-2 Skeleton</a></li>
+  </ul>
+</nav>
+              </div>
+          </aside>
+          
+
+          
+          <aside class="tags">
+            <h5>Tags</h5>
+            <ul class="tags-ul list-unstyled list-inline">
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/gpt"
+                target="_blank"
+              >gpt</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/tokenization"
+                target="_blank"
+              >tokenization</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/pytorch"
+                target="_blank"
+              >PyTorch</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/n-gram-models"
+                target="_blank"
+              >n-gram models</a></li>
+              
+            </ul>
+          </aside>
+          
+
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-9 p-4">
+        
+      </div>
+    </div>
+  </div>
+  <button class="p-2 px-3" onclick="topFunction()" id="topScroll">
+    <i class="fas fa-angle-up"></i>
+  </button>
+</section>
+
+
+<div class="progress">
+  <div id="scroll-progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<Script src="/js/scrollProgressBar.js"></script>
+
+
+<script>
+  var topScroll = document.getElementById("topScroll");
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      topScroll.style.display = "block";
+    } else {
+      topScroll.style.display = "none";
+    }
+  }
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  
+  let stickySideBarElem = document.getElementById("stickySideBar");
+  let stickyNavBar =  true ;
+  if(stickyNavBar) {
+    let headerElem = document.getElementById("profileHeader");
+    let headerHeight = headerElem.offsetHeight + 15;
+    stickySideBarElem.style.top = headerHeight + "px";
+  } else {
+    stickySideBarElem.style.top = "50px";
+  }
+</script>
+
+
+<script src="/js/readingTime.js"></script>
+
+
+
+  </div><footer>
+    
+ 
+
+<div class="text-center pt-2">
+    
+    <span class="px-1">
+        <a href="https://github.com/aankitdas" target="_blank" aria-label="github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.7em" height="2.7em" viewBox="0 0 1792 1792">
+                <path id="footer-socialNetworks-github-svg-path"
+                    d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5t-203.5 84.5h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5h-224q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z" />
+
+                <metadata>
+                    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                        <rdf:Description about="https://iconscout.com/legal#licenses"
+                            dc:title="Github, Online, Project, Hosting, Square"
+                            dc:description="Github, Online, Project, Hosting, Square" dc:publisher="Iconscout"
+                            dc:date="2016-12-14" dc:format="image/svg+xml" dc:language="en">
+                            <dc:creator>
+                                <rdf:Bag>
+                                    <rdf:li>Font Awesome</rdf:li>
+                                </rdf:Bag>
+                            </dc:creator>
+                        </rdf:Description>
+                    </rdf:RDF>
+                </metadata>
+            </svg>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1">
+        <a href="https://linkedin.com/in/aankitdas" target="_blank" aria-label="linkedin">
+            <svg xmlns="http://www.w3.org/2000/svg" width='2.4em' height='2.4em' fill="#fff" aria-label="LinkedIn"
+                viewBox="0 0 512 512">
+                <rect width="512" height="512" fill="#0077b5" rx="15%" />
+                <circle cx="142" cy="138" r="37" />
+                <path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198" />
+                <path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32" />
+            </svg>
+        </a>
+    </span>
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    <span class="px-1">
+        <a href="https://scholar.google.com/citations?user=bUYJFM8AAAAJ&amp;hl=en" target="_blank" aria-label="google scholar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.4em" height="2.4em" viewBox="0 0 48 48">
+                
+                <rect width="48" height="48" rx="15%" fill="#66778d" rx="15%"  />
+                
+                <path fill="#fff" d="M24 12L8 20l16 8 16-8-16-8zm-7.5 8.6v4.8c0 3.5 5 6.3 7.5 7.6 2.5-1.3 7.5-4.1 7.5-7.6v-4.8l-7.5 3.8-7.5-3.8z"/>
+            </svg>
+        </a>
+    </span>
+
+
+    
+
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            
+                <div class="pb-2">
+                    <a href="http://localhost:1313/" title="Aankit&#39;s Space">
+                        <img alt="Footer logo" src="/head.png"
+                            height="40px" width="40px">
+                    </a>
+                </div>
+            
+            &copy; 2025  All rights reserved
+            <div class="text-secondary">
+                Made with
+                <span class="text-danger">
+                    &#10084;
+                </span>
+                and
+                <a href="https://github.com/gurusabarish/hugo-profile" target="_blank"
+                    title="Designed and developed by gurusabarish">
+                    Hugo Profile
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+<!-- MathJax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" integrity="sha384-M5jmNxKC9EVnuqeMwRHvFuYUE8Hhp0TgBruj/GZRkYtiMrCRgH7yvv5KY+Owi7TW" crossorigin="anonymous"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: { equationNumbers: { autoNumber: "AMS" },
+             extensions: ["AMSmath.js", "AMSsymbols.js"] }
+      }
+    });
+</script>
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>
