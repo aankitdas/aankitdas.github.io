@@ -68,7 +68,7 @@ params:
   title: "Aankit's Space"
   description: My cool site
   # staticPath: ""  # The path to serve the static files from
-  favicon: "/head.png"
+  favicon: "/head.ico"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
@@ -357,7 +357,7 @@ params:
 
       - title: NEAT Algorithm playing Dino Game
         content: Implemented the NeuroEvolution of Augmenting Topologies (NEAT) algorithm to train an AI agent to play the Chrome Dino game. The project involved evolving neural network architectures and weights through genetic algorithms, enabling the agent to learn optimal jumping strategies to avoid obstacles and achieve high scores.
-        image: /projects/dino.gif
+        image: /projects/dino_gif.gif
           
         links:
           - icon: fab fa-github
