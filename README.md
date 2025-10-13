@@ -2,6 +2,8 @@
 
 Welcome to my personal website! This site showcases my projects, blogs, and more. Built with [Hugo](https://gohugo.io/) and the [hugo-profile theme](https://github.com/olesovh/hugo-profile).
 
+Portfolio Link - [https://aankitdas.github.io/](https://aankitdas.github.io/)
+
 ---
 
 ## 🌟 Features
@@ -26,12 +28,14 @@ Welcome to my personal website! This site showcases my projects, blogs, and more
 
 ## 📂 Repository Structure
 
+```
 ├── content/ # Your site content (blogs, projects, etc.)
 ├── static/ # Static files like images, icons, PDFs
 ├── themes/ # Hugo theme folder
 ├── hugo.yaml # Site configuration
 ├── README.md # This file
 └── .github/workflows/gh-pages.yml # Deployment workflow
+```
 
 ## 🚀 Deployment
 
