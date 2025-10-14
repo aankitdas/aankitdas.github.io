@@ -217,7 +217,7 @@ params:
             content: |
               - Active contributor to the [CMB-ML GitHub organization](https://github.com/CMB-ML/), supporting open-source research for cosmology and machine learning; working toward submitting findings to ICCV/CVPR.
               - Processed 1,600 high-resolution (Nside=512) CMB simulated maps (24GB) across multiple splits.
-              - Developed an UNet-inspired encoder-decoder neural architecture, trained under 20 seconds per epoch on modern GPUs, for denoising and recovering the angular power spectrum (Cℓ) across ℓ ∈ [2, 1280] from these simulated maps.
+              - Developed an UNet-inspired encoder-decoder neural architecture, trained under 20s per epoch on modern GPUs, for denoising and recovering the angular power spectrum (Cℓ) across ℓ ∈ [2, 1280] from these simulated maps.
               - Performed rigorous ablation studies including dropout, batch normalization, loss function variants (MSE, normalized MSE, Wishart), and activation functions (ReLU, GELU).
               - Automated hyperparameter sweeps using Hydra and shell scripting to benchmark model performance across ells, detectors, and feature configurations at different resolutions (Nside=128/512).
             
