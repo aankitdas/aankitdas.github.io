@@ -1,0 +1,38 @@
+.side-quests-teaser {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.side-quests-teaser .highlight-link {
+  color: #ff5722;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.1em 0.15em;
+  border-radius: 0.25em;
+  background: none; /* no highlight initially */
+  transition: background-position 0.5s ease, background-size 0.3s ease;
+}
+
+.side-quests-teaser .highlight-link:hover {
+  background-image: linear-gradient(
+    to right,
+    rgba(255,105,180,0.2) 0%,
+    rgba(255,105,180,0.2) 100%
+  );
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  animation: sweep 0.5s forwards;
+}
+
+@keyframes sweep {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
