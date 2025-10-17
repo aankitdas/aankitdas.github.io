@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deep Learning on Aankit&#39;s Space</title>
-    <link>http://localhost:1313/tags/deep-learning/</link>
+    <link>https://aankitdas.github.io/tags/deep-learning/</link>
     <description>Recent content in Deep Learning on Aankit&#39;s Space</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aankitdas.github.io/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AlexNet from scratch</title>
-      <link>http://localhost:1313/blogs/alexnet-from-scratch/</link>
+      <link>https://aankitdas.github.io/blogs/alexnet-from-scratch/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blogs/alexnet-from-scratch/</guid>
+      <guid>https://aankitdas.github.io/blogs/alexnet-from-scratch/</guid>
       <description>Implemented AlexNet from scratch using just the research paper as source. The notes discuss the fundamental concepts of CNN and showcase various problems Ifaced while coding the Alexnet architecture.</description>
     </item>
   </channel>
