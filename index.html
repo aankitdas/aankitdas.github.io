@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.151.0"><meta charset="UTF-8">
+	<meta name="generator" content="Hugo 0.151.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
 <link rel="icon" href=/head.ico type="image/gif">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +30,7 @@
 
 
 
-<meta property="og:url" content="https://aankitdas.github.io/">
+<meta property="og:url" content="http://localhost:1313/">
   <meta property="og:site_name" content="Aankit&#39;s Space">
   <meta property="og:title" content="Aankit&#39;s Space">
   <meta property="og:description" content="My cool site">
@@ -108,6 +109,8 @@
 <meta name="description" content=My&#32;cool&#32;site>
 <link rel="stylesheet" href="/css/index.css" media="all">
 <link rel="stylesheet" href="/css/projects.css" media="all">
+<link rel="stylesheet" href="/css/publications.css" media="all">
+
 
 
 <script defer src="/fontawesome-6/all-6.4.2.js"></script>
@@ -156,7 +159,7 @@ Aankit&#39;s Space
         let profileHeaderElem = document.getElementById("profileHeader");
         let currentScrollPos = window.pageYOffset;
         let resetHeaderStyle = false;
-        let showNavBarOnScrollUp =  false ;
+        let showNavBarOnScrollUp =  true ;
         let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
         if (showNavBar) {
             profileHeaderElem.classList.add("showHeaderOnTop");
@@ -203,68 +206,97 @@ Aankit&#39;s Space
                     
 
                     
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#about" aria-label="about">
-                            About Me
-                        </a>
-                    </li>
+
                     
 
                     
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#experience"
-                            aria-label="experience">
-                            Experience
-                        </a>
-                    </li>
+
                     
 
                     
+
+                    
+
+                    
+
+                    
+                    
+                    
+                    
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#education"
-                            aria-label="education">
+                        <a class="nav-link" href="/#about" title="">
+                            
+                            About
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education" title="">
+                            
                             Education
                         </a>
                     </li>
                     
-
+                    
+                    
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#projects"
-                            aria-label="projects">
+                        <a class="nav-link" href="/#experience" title="">
+                            
+                            Experience
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects" title="">
+                            
                             Projects
                         </a>
                     </li>
                     
-
+                    
+                    
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#achievements"
-                            aria-label="achievements">
+                        <a class="nav-link" href="/#publications" title="">
+                            
+                            Publications
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#achievements" title="">
+                            
                             Achievements
                         </a>
                     </li>
                     
-
+                    
+                    
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#contact"
-                            aria-label="contact">
-                            Contact
+                        <a class="nav-link" href="/blogs" title="">
+                            
+                            Blog
                         </a>
                     </li>
                     
-
-                    
-
-                    
                     
                     
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blogs" title="Blog posts">
+                        <a class="nav-link" href="/#contact" title="">
                             
-                            Blog
+                            Contact
                         </a>
                     </li>
                     
@@ -306,7 +338,7 @@ Aankit&#39;s Space
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8 content animate" id="primary-font">
                 <span class="subtitle">
-                    Hi, my name is
+                    Hi, I&#39;m
                 </span>
                 <h1>
                     Aankit.
@@ -640,9 +672,20 @@ Aankit&#39;s Space
         <h3 class="text-center bg-transparent">About Me</h3>
         <div class="bg-transparent row justify-content-center px-3 py-5">
             
+            <div class="col-sm-12 col-md-8 col-lg-4 mb-5 mb-sm-0 mb-md-5 mb-lg-0 d-none d-sm-none d-md-block">
+                <div class="image d-flex px-5">
+                    <img src="/me.JPG" class="img-thumbnail mx-auto rounded-circle" alt="">
+                </div>
+            </div>
+            
             <div class="col-sm-12 col-md-12 col-lg-8 content">
-                <p>I’m Aankit, a master&rsquo;s graduate from University of Texas at Dallas, in Computer Engineering. Currently, I am a researcher and engineer passionate about building intelligent systems that help scientists make sense of complex data. My work spans predictive modeling, neural pipelines, and distributed machine learning, with a focus on accelerating cosmological inference from noisy CMB maps.</p>
-<p>I love turning messy datasets into clean, actionable insights, whether through optimizing deep learning architectures, scaling computations across multi-GPU clusters, or experimenting with novel algorithms. Beyond research, I enjoy exploring ways AI can simplify real-world problems, and I’m always tinkering, learning, and pushing the boundaries of what’s possible.</p>
+                <p>Hello there! I&rsquo;m a master&rsquo;s graduate in Computer Engineering (Machine Learning specialization) from the <a href="https://www.utdallas.edu/">University of Texas at Dallas</a>. Right now, I’m part of an <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2327245&amp;HistoricalAwards=false">NSF-funded</a> project at UT Dallas
+and collaborating with the <a href="https://github.com/CMB-ML">Cosmological Parameter Estimation group</a> group under <a href="https://personal.utdallas.edu/~mishak/">Dr. Ishak</a>. My work involves building and fine-tuning neural architectures to clean Cosmic Microwave Background (CMB)
+maps, extracting the underlying cosmological signal from noisy data using deep neural architectures.
+It’s challenging, constantly pushing me to optimize large-scale simulations, experiment with architectures, and make neural networks that actually work beyond the textbook.</p>
+<p>Before this, I’ve worked across a mix of academic research and applied ML. I have published four journal papers with <a href="https://scholar.google.com/citations?user=bUYJFM8AAAAJ&amp;hl=en">120+ citations</a>, and contributed to open-source repositories.
+I’ve built end-to-end ML systems for NLP, OCR automation, segmentation, sentiment analysis, and speech emotion recognition, along with backend pipelines using Python, SQL, Docker, and AWS.
+I love turning messy datasets into clean, actionable insights, whether through optimizing deep learning architectures, scaling computations across multi-GPU clusters, or experimenting with novel algorithms. Beyond research, I enjoy exploring ways AI can simplify real-world problems, and I’m always tinkering, learning, and pushing the boundaries of what’s possible.</p>
 <p>When I’m not coding or analyzing data, you’ll find me climbing rocks, hiking trails, and capturing landscapes through my lens.</p>
 
 
@@ -651,6 +694,110 @@ Aankit&#39;s Space
         </div>
     </div>
 </section>
+
+<section id="education" class="py-5">
+    <div class="container">
+        <h3 class="text-center">Education</h3>
+        <div class="row justify-content-center py-5">
+            
+            
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="float-end">
+                                    <small>2023 - 2025</small>
+                                    
+                                    <br>
+                                    <small class="text-muted">Richardson, TX</small>
+                                    
+                                </div>
+                                <h5 class="card-title">MS in Computer Engineering</h5>
+                                
+                                
+                                <a href="https://engineering.utdallas.edu/" target="_blank">
+                                    <h6>
+                                    University of Texas at Dallas
+                                    </h6>
+                                </a>
+                                
+
+                                
+                                <div class="py-1">
+                                    GPA:
+                                    <i>
+                                        <small>3.8 out of 4.0</small>
+                                    </i> 
+                                </div>
+                                
+                                <div class="py-1 education-content">
+                                    Coursework: Machine Learning, Statistical Methods in AI and ML, NLP, Applied Data Structures and Algorithms,
+Computer Architecture, Embedded Systems, Wireless Sensor Systems, Hardware Modelling, Advanced Digital Language
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 p-0">
+                <div class="row row align-items-center justify-content-center m-1 mb-4">
+                    
+
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="float-end">
+                                    <small>2016 - 2020</small>
+                                    
+                                    <br>
+                                    <small class="text-muted">Kolkata, IN</small>
+                                    
+                                </div>
+                                <h5 class="card-title">BTech in Electronics and Communication Engineering</h5>
+                                
+                                
+                                <a href="https://www.irpe.in/" target="_blank">
+                                    <h6>
+                                    University of Calcutta
+                                    </h6>
+                                </a>
+                                
+
+                                
+                                <div class="py-1">
+                                    GPA:
+                                    <i>
+                                        <small>8.03 out of 10.0</small>
+                                    </i> 
+                                </div>
+                                
+                                <div class="py-1 education-content">
+                                    Thesis: Low-Power Multi-Optional Sat-nav Module with Multi-Constellation Satellite Signal Tracking.
+                                </div>
+
+                                
+                                <div class="py-1">
+                                    <a href="https://drive.google.com/file/d/1On5Tj6xKnt-7Hq-NHdAAsjBdDyPlmvzQ/view" class="btn">
+                                        My Thesis
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
 
 <section id="experience" class="py-5">
     <div class="container">
@@ -841,110 +988,6 @@ Microwave Background) maps, enabling faster, scalable alternatives to traditiona
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-
-<section id="education" class="py-5">
-    <div class="container">
-        <h3 class="text-center">Education</h3>
-        <div class="row justify-content-center py-5">
-            
-            
-            <div class="col-12 p-0">
-                <div class="row row align-items-center justify-content-center m-1 mb-4">
-                    
-
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <small>2023 - 2025</small>
-                                    
-                                    <br>
-                                    <small class="text-muted">Richardson, TX</small>
-                                    
-                                </div>
-                                <h5 class="card-title">MS in Computer Engineering</h5>
-                                
-                                
-                                <a href="https://engineering.utdallas.edu/" target="_blank">
-                                    <h6>
-                                    University of Texas at Dallas
-                                    </h6>
-                                </a>
-                                
-
-                                
-                                <div class="py-1">
-                                    GPA:
-                                    <i>
-                                        <small>3.8 out of 4.0</small>
-                                    </i> 
-                                </div>
-                                
-                                <div class="py-1 education-content">
-                                    Coursework: Machine Learning, Statistical Methods in AI and ML, NLP, Applied Data Structures and Algorithms,
-Computer Architecture, Embedded Systems, Wireless Sensor Systems, Hardware Modelling, Advanced Digital Language
-                                </div>
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-12 p-0">
-                <div class="row row align-items-center justify-content-center m-1 mb-4">
-                    
-
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="float-end">
-                                    <small>2016 - 2020</small>
-                                    
-                                    <br>
-                                    <small class="text-muted">Kolkata, IN</small>
-                                    
-                                </div>
-                                <h5 class="card-title">BTech in Electronics and Communication Engineering</h5>
-                                
-                                
-                                <a href="https://www.irpe.in/" target="_blank">
-                                    <h6>
-                                    University of Calcutta
-                                    </h6>
-                                </a>
-                                
-
-                                
-                                <div class="py-1">
-                                    GPA:
-                                    <i>
-                                        <small>8.03 out of 10.0</small>
-                                    </i> 
-                                </div>
-                                
-                                <div class="py-1 education-content">
-                                    Thesis: Low-Power Multi-Optional Sat-nav Module with Multi-Constellation Satellite Signal Tracking.
-                                </div>
-
-                                
-                                <div class="py-1">
-                                    <a href="https://drive.google.com/file/d/1On5Tj6xKnt-7Hq-NHdAAsjBdDyPlmvzQ/view" class="btn">
-                                        My Thesis
-                                    </a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
 </section>
@@ -1167,6 +1210,213 @@ Computer Architecture, Embedded Systems, Wireless Sensor Systems, Hardware Model
   </p>
 </section>
 
+<section id="publications" class="py-5">
+    <div class="container">
+        <h3 class="text-center">Publications</h3>
+        <div class="row justify-content-center px-3 px-md-5">
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 my-3">
+                <div class="card my-3 h-100" title="EmergeNet | Frontiers in Plant Science">
+                    <div class="card-head">
+                        
+                            <a href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2023.1084778/full" target="_blank">
+                                <img class="card-img-top" src="/projects/emergenet.jpg" alt="EmergeNet | Frontiers in Plant Science">
+                            </a>
+                        
+                    </div>
+
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Computer Vision</span>
+                            
+                            <span class="badge badge-secondary">Segmentation Algorithm</span>
+                            
+                            <span class="badge badge-secondary">Ensemble Model</span>
+                            
+                            <span class="badge badge-secondary">Agriculture</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">EmergeNet | Frontiers in Plant Science</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            A novel deep-learning based ensemble segmentation model for emergence timing detection of coleoptile.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/aankitdas/EmergeNet" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2023.1084778/full" target="_blank">
+                                Read Paper
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 my-3">
+                <div class="card my-3 h-100" title="FlowerPhenoNet | Remote Sensing">
+                    <div class="card-head">
+                        
+                            <a href="https://www.mdpi.com/2072-4292/14/24/6252" target="_blank">
+                                <img class="card-img-top" src="/projects/flower.jpg" alt="FlowerPhenoNet | Remote Sensing">
+                            </a>
+                        
+                    </div>
+
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Computer Vision</span>
+                            
+                            <span class="badge badge-secondary">YOLOv3</span>
+                            
+                            <span class="badge badge-secondary">Plant Phenotyping</span>
+                            
+                            <span class="badge badge-secondary">Benchmark Dataset</span>
+                            
+                            <span class="badge badge-secondary">Agriculture</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">FlowerPhenoNet | Remote Sensing</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            Automated flower detection from multi-view image sequences using deep neural networks for temporal plant phenotyping analysis.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/aankitdas/FlowerPhenoNet" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://www.mdpi.com/2072-4292/14/24/6252" target="_blank">
+                                Read Paper
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 my-3">
+                <div class="card my-3 h-100" title="BBA-LAHC | IEEE Access">
+                    <div class="card-head">
+                        
+                            <a href="https://ieeexplore.ieee.org/abstract/document/9210572" target="_blank">
+                                <img class="card-img-top" src="/projects/bba.jpg" alt="BBA-LAHC | IEEE Access">
+                            </a>
+                        
+                    </div>
+
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Metaheuristic Algorithm</span>
+                            
+                            <span class="badge badge-secondary">Feature Selection</span>
+                            
+                            <span class="badge badge-secondary">MFCC and LPC</span>
+                            
+                            <span class="badge badge-secondary">Machine Learning</span>
+                            
+                            <span class="badge badge-secondary">Acoustic feature extraction</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">BBA-LAHC | IEEE Access</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            A novel, nature-inspired metaheuristic Feature Selection (FS) algorithm using Binary Bat Algorithm and Late Acceptance Hill-Climbing Algorithm.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/aankitdas/BBA-LAHC" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://ieeexplore.ieee.org/abstract/document/9210572" target="_blank">
+                                Read Paper
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 my-3">
+                <div class="card my-3 h-100" title="HS-NMR | IEEE Access">
+                    <div class="card-head">
+                        
+                            <a href="https://ieeexplore.ieee.org/abstract/document/9212354" target="_blank">
+                                <img class="card-img-top" src="/projects/emergenet.jpg" alt="HS-NMR | IEEE Access">
+                            </a>
+                        
+                    </div>
+
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">Metaheuristic Algorithm</span>
+                            
+                            <span class="badge badge-secondary">Feature Selection</span>
+                            
+                            <span class="badge badge-secondary">RASTA-PLP</span>
+                            
+                            <span class="badge badge-secondary">Mel Spectogram</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">HS-NMR | IEEE Access</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            A new hybrid Feature Selection (FS) algorithm by using the Harmony Searching Algorithm and Naked-Mole Rat Algorithm in order to classify languages.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        <span class="m-1 mx-2">
+                            <a href="https://github.com/aankitdas/HS-NMRA" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </span>
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://ieeexplore.ieee.org/abstract/document/9212354" target="_blank">
+                                Read Paper
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</section>
+
+
 <section id="achievements" class="py-5">
     <div class="container">
         <h3 class="text-center">Achievements</h3>
@@ -1221,7 +1471,7 @@ Computer Architecture, Embedded Systems, Wireless Sensor Systems, Hardware Model
             <div class="row justify-content-center px-md-5">
                 <div class="col-md-8 py-3">
                     <div class="text-center">
-                        Debugging life, one semicolon at a time. Drop me a message if you want to talk code, collaborate on a project, or share your rock climbing adventures!🧗‍♂️
+                        Always learning, always coding. Don’t be shy, say hi!
                     </div>
                     
                     <div class="text-center pt-3">
@@ -1329,7 +1579,7 @@ Computer Architecture, Embedded Systems, Wireless Sensor Systems, Hardware Model
         <div class="col-md-4 text-center">
             
                 <div class="pb-2">
-                    <a href="https://aankitdas.github.io/" title="Aankit&#39;s Space">
+                    <a href="http://localhost:1313/" title="Aankit&#39;s Space">
                         <img alt="Footer logo" src="/head.ico"
                             height="40px" width="40px">
                     </a>

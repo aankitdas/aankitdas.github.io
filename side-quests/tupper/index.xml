@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tupper’s Self-Referential Formula 🧮 on Aankit&#39;s Space</title>
-    <link>https://aankitdas.github.io/side-quests/tupper/</link>
+    <link>http://localhost:1313/side-quests/tupper/</link>
     <description>Recent content in Tupper’s Self-Referential Formula 🧮 on Aankit&#39;s Space</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://aankitdas.github.io/side-quests/tupper/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/side-quests/tupper/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

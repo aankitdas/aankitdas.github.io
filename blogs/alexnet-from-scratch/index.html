@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><meta charset="UTF-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
 <link rel="icon" href=/head.ico type="image/gif">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +29,7 @@
 
 
 
-<meta property="og:url" content="https://aankitdas.github.io/blogs/alexnet-from-scratch/">
+<meta property="og:url" content="http://localhost:1313/blogs/alexnet-from-scratch/">
   <meta property="og:site_name" content="Aankit&#39;s Space">
   <meta property="og:title" content="AlexNet from scratch">
   <meta property="og:description" content="Implemented AlexNet from scratch using just the research paper as source. The notes discuss the fundamental concepts of CNN and showcase various problems Ifaced while coding the Alexnet architecture.">
@@ -162,7 +163,7 @@ AlexNet from scratch | Aankit&#39;s Space
         let profileHeaderElem = document.getElementById("profileHeader");
         let currentScrollPos = window.pageYOffset;
         let resetHeaderStyle = false;
-        let showNavBarOnScrollUp =  false ;
+        let showNavBarOnScrollUp =  true ;
         let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
         if (showNavBar) {
             profileHeaderElem.classList.add("showHeaderOnTop");
@@ -209,68 +210,97 @@ AlexNet from scratch | Aankit&#39;s Space
                     
 
                     
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#about" aria-label="about">
-                            About Me
-                        </a>
-                    </li>
+
                     
 
                     
-                    <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#experience"
-                            aria-label="experience">
-                            Experience
-                        </a>
-                    </li>
+
                     
 
                     
+
+                    
+
+                    
+
+                    
+                    
+                    
+                    
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#education"
-                            aria-label="education">
+                        <a class="nav-link" href="/#about" title="">
+                            
+                            About
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education" title="">
+                            
                             Education
                         </a>
                     </li>
                     
-
+                    
+                    
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#projects"
-                            aria-label="projects">
+                        <a class="nav-link" href="/#experience" title="">
+                            
+                            Experience
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects" title="">
+                            
                             Projects
                         </a>
                     </li>
                     
-
+                    
+                    
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#achievements"
-                            aria-label="achievements">
+                        <a class="nav-link" href="/#publications" title="">
+                            
+                            Publications
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#achievements" title="">
+                            
                             Achievements
                         </a>
                     </li>
                     
-
+                    
+                    
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#contact"
-                            aria-label="contact">
-                            Contact
+                        <a class="nav-link" href="/blogs" title="">
+                            
+                            Blog
                         </a>
                     </li>
                     
-
-                    
-
-                    
                     
                     
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/blogs" title="Blog posts">
+                        <a class="nav-link" href="/#contact" title="">
                             
-                            Blog
+                            Contact
                         </a>
                     </li>
                     
@@ -482,23 +512,23 @@ AlexNet from scratch | Aankit&#39;s Space
             <h5>Tags</h5>
             <ul class="tags-ul list-unstyled list-inline">
               
-              <li class="list-inline-item"><a href="https://aankitdas.github.io/tags/deep-learning"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/deep-learning"
                 target="_blank"
               >Deep Learning</a></li>
               
-              <li class="list-inline-item"><a href="https://aankitdas.github.io/tags/cnn"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/cnn"
                 target="_blank"
               >CNN</a></li>
               
-              <li class="list-inline-item"><a href="https://aankitdas.github.io/tags/alexnet"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/alexnet"
                 target="_blank"
               >AlexNet</a></li>
               
-              <li class="list-inline-item"><a href="https://aankitdas.github.io/tags/feature-extraction"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/feature-extraction"
                 target="_blank"
               >Feature Extraction</a></li>
               
-              <li class="list-inline-item"><a href="https://aankitdas.github.io/tags/pytorch"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/pytorch"
                 target="_blank"
               >PyTorch</a></li>
               
@@ -635,7 +665,7 @@ AlexNet from scratch | Aankit&#39;s Space
         <div class="col-md-4 text-center">
             
                 <div class="pb-2">
-                    <a href="https://aankitdas.github.io/" title="Aankit&#39;s Space">
+                    <a href="http://localhost:1313/" title="Aankit&#39;s Space">
                         <img alt="Footer logo" src="/head.ico"
                             height="40px" width="40px">
                     </a>

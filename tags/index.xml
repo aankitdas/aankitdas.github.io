@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Aankit&#39;s Space</title>
-    <link>https://aankitdas.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Aankit&#39;s Space</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aankitdas.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AlexNet</title>
-      <link>https://aankitdas.github.io/tags/alexnet/</link>
+      <link>http://localhost:1313/tags/alexnet/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/alexnet/</guid>
+      <guid>http://localhost:1313/tags/alexnet/</guid>
       <description></description>
     </item>
     <item>
       <title>CNN</title>
-      <link>https://aankitdas.github.io/tags/cnn/</link>
+      <link>http://localhost:1313/tags/cnn/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/cnn/</guid>
+      <guid>http://localhost:1313/tags/cnn/</guid>
       <description></description>
     </item>
     <item>
       <title>Deep Learning</title>
-      <link>https://aankitdas.github.io/tags/deep-learning/</link>
+      <link>http://localhost:1313/tags/deep-learning/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/deep-learning/</guid>
+      <guid>http://localhost:1313/tags/deep-learning/</guid>
       <description></description>
     </item>
     <item>
       <title>Feature Extraction</title>
-      <link>https://aankitdas.github.io/tags/feature-extraction/</link>
+      <link>http://localhost:1313/tags/feature-extraction/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/feature-extraction/</guid>
+      <guid>http://localhost:1313/tags/feature-extraction/</guid>
       <description></description>
     </item>
     <item>
       <title>PyTorch</title>
-      <link>https://aankitdas.github.io/tags/pytorch/</link>
+      <link>http://localhost:1313/tags/pytorch/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/pytorch/</guid>
+      <guid>http://localhost:1313/tags/pytorch/</guid>
       <description></description>
     </item>
     <item>
       <title>Gpt</title>
-      <link>https://aankitdas.github.io/tags/gpt/</link>
+      <link>http://localhost:1313/tags/gpt/</link>
       <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/gpt/</guid>
+      <guid>http://localhost:1313/tags/gpt/</guid>
       <description></description>
     </item>
     <item>
       <title>N-Gram Models</title>
-      <link>https://aankitdas.github.io/tags/n-gram-models/</link>
+      <link>http://localhost:1313/tags/n-gram-models/</link>
       <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/n-gram-models/</guid>
+      <guid>http://localhost:1313/tags/n-gram-models/</guid>
       <description></description>
     </item>
     <item>
       <title>Tokenization</title>
-      <link>https://aankitdas.github.io/tags/tokenization/</link>
+      <link>http://localhost:1313/tags/tokenization/</link>
       <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/tags/tokenization/</guid>
+      <guid>http://localhost:1313/tags/tokenization/</guid>
       <description></description>
     </item>
   </channel>

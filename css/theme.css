@@ -22,6 +22,10 @@
 .dark #footer-socialNetworks-github-svg-path{
     fill: #FFFFFF;
 }
+.dark {
+    --text-link-color-dark:  #92f1e8;
+}
+
 
 .text-secondary {
     color: var(--text-secondary-color) !important;

@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Aankit&#39;s Space</title>
-    <link>https://aankitdas.github.io/blogs/</link>
+    <link>http://localhost:1313/blogs/</link>
     <description>Recent content in Blog on Aankit&#39;s Space</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://aankitdas.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AlexNet from scratch</title>
-      <link>https://aankitdas.github.io/blogs/alexnet-from-scratch/</link>
+      <link>http://localhost:1313/blogs/alexnet-from-scratch/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/blogs/alexnet-from-scratch/</guid>
+      <guid>http://localhost:1313/blogs/alexnet-from-scratch/</guid>
       <description>Implemented AlexNet from scratch using just the research paper as source. The notes discuss the fundamental concepts of CNN and showcase various problems Ifaced while coding the Alexnet architecture.</description>
     </item>
     <item>
       <title>GPT from scratch</title>
-      <link>https://aankitdas.github.io/blogs/gpt-from-scratch/</link>
+      <link>http://localhost:1313/blogs/gpt-from-scratch/</link>
       <pubDate>Wed, 12 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://aankitdas.github.io/blogs/gpt-from-scratch/</guid>
+      <guid>http://localhost:1313/blogs/gpt-from-scratch/</guid>
       <description>This is a very rustic blog post about the foundational aspect of building a GPT model from the ground up. The article covers essential topics such as tokenization, data chunking, batch processing, and the implementation of a Bigram language model using PyTorch.</description>
     </item>
   </channel>
